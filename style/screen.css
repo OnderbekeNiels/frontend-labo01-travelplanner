@@ -41,35 +41,88 @@ body {
   color: var(--theme-color-xxxxx-dark);
 }
 
-.c-app{
-    display:grid;
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
+.o-hide-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.c-app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
 }
 
 /* Header */
-.c-header{}
-.c-logo{}
-.c-logo__text{}
+.c-header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  background: var(--theme-color-xx-light);
+}
+.c-logo {
+  text-decoration: none;
+}
+.c-logo__text {
+  font-weight: 700;
+}
 
 /* Nav */
-.c-nav{}
-.c-nav-list{}
-.c-nav-list__item{}
+.c-nav {
+}
+.c-nav-list {
+  list-style: none;
+  flex-basis: calc(100% / 3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-nav-list__item {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.c-nav-list__item:nth-child(1) {
+  margin-left: 0;
+}
+
+.c-nav-list__item--current {
+  color: var(--theme-color-xxxx-dark);
+  font-weight: 700;
+}
 
 /* Counter */
-.c-counter{}
-.c-counter__current{}
-
+.c-counter {
+}
+.c-counter__current {
+  color: var(--theme-color-xxxx-dark);
+  font-weight: 700;
+}
 
 /* Countries */
-.c-countries{}
-.c-country{}
-.c-country__hidden-input{}
-.c-country__label{}
-.c-country__flag{}
-.c-country__details{}
-.c-country__name{}
-.c-country__native-name{}
-
-.o-hide-accessible{}
+.c-countries {
+}
+.c-country {
+}
+.c-country__hidden-input {
+}
+.c-country__label {
+}
+.c-country__flag {
+  max-height: 0.9375rem;
+  border-radius: 4px;
+}
+.c-country__details {
+}
+.c-country__name {
+  font-weight: 700;
+  color: var(--theme-color-xxxx-dark);
+}
+.c-country__native-name {
+  font-size: 0.875rem;
+}

@@ -7,3 +7,36 @@
 #1 stel de body correct in
 
 */
+
+:root {
+  --font-stack-headers: "Sarubun", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  /* Default navtive stack */
+  --font-stack-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+  --theme-color-xxxxx-light: #f2ffff;
+  --theme-color-xxxx-light: #ebfaff;
+  --theme-color-xxx-light: #e3eeff;
+  --theme-color-xx-light: #c4c0ff;
+  --theme-color-x-light: #d0a1ff;
+  --theme-color-light: #f889ff;
+  --theme-color-base: #ff78cb;
+  --theme-color-dark: #ed49c8;
+  --theme-color-x-dark: #d732c4;
+  --theme-color-xx-dark: #be1db7;
+  --theme-color-xxx-dark: #9f0da3;
+  --theme-color-xxxx-dark: #770087;
+  --theme-color-xxxxx-dark: #480052;
+}
+
+html {
+    background: var(--theme-color-xxxxx-light);
+}
+
+body {
+  font: 16px/1.5 var(--font-stack-headers);
+  color: var(--theme-color-xxxxx-dark)
+}

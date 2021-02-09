@@ -9,7 +9,7 @@
 */
 
 :root {
-  --font-stack-headers: "Sarubun", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --font-stack-headers: "Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   /* Default navtive stack */
@@ -33,10 +33,43 @@
 }
 
 html {
-    background: var(--theme-color-xxxxx-light);
+  background: var(--theme-color-xxxxx-light);
 }
 
 body {
   font: 16px/1.5 var(--font-stack-headers);
-  color: var(--theme-color-xxxxx-dark)
+  color: var(--theme-color-xxxxx-dark);
 }
+
+.c-app{
+    display:grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+/* Header */
+.c-header{}
+.c-logo{}
+.c-logo__text{}
+
+/* Nav */
+.c-nav{}
+.c-nav-list{}
+.c-nav-list__item{}
+
+/* Counter */
+.c-counter{}
+.c-counter__current{}
+
+
+/* Countries */
+.c-countries{}
+.c-country{}
+.c-country__hidden-input{}
+.c-country__label{}
+.c-country__flag{}
+.c-country__details{}
+.c-country__name{}
+.c-country__native-name{}
+
+.o-hide-accessible{}

@@ -5,7 +5,7 @@
     <title>Country Planner</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <!-- preconnect zorgt dat hij zo snel mogelijk naar dit domein gaat -->
+    <!-- !preconnect zorgt dat hij zo snel mogelijk naar dit domein gaat -->
     <link
       href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap"
       rel="stylesheet"
@@ -14,24 +14,36 @@
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/screen.css" />
     <script defer src="./script/app.js"></script>
-    <!-- defer dat alles eerst geparsed wordt -->
+    <!-- !defer dat alles eerst geparsed wordt -->
 
-    <!-- To Do: add favicon -->
+    <link rel="icon" type="image/png" href="/images/earth.png" />
   </head>
   <body>
     <main class="c-app">
       <header class="c-header">
-        <a class="c-logo" href="#"
-          ><h1 class="c-logo__text">🌎 Travel Planner</h1></a
+        <a class="c-logo" href="#">
+          <img
+            class="c-logo__img"
+            src="./images/earth.png"
+            alt="Picture of our logo."
+          />
+          <h1 class="c-logo__text">Travel Planner</h1></a
         >
         <nav class="c-nav">
-          <ul class="c-nav-list">
-            <li class="c-nav-list__item c-nav-list__item--current">Africa</li>
-            <li class="c-nav-list__item">America</li>
-            <li class="c-nav-list__item">Asia</li>
-            <li class="c-nav-list__item">Europe</li>
-            <li class="c-nav-list__item">Oceania</li>
-          </ul>
+          <label class="c-nav__label" for="continents"
+            >filter on continent:</label
+          >
+          <select
+            class="c-nav__select js-continent-select"
+            name="continents"
+            id="continents"
+          >
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
         </nav>
         <div class="c-counter">
           <span class="c-counter__current js-countries-visited">49</span>/250

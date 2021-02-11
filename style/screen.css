@@ -54,6 +54,7 @@ body {
 
 .c-app {
   display: grid;
+  gap: 1rem;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
 }
@@ -64,36 +65,46 @@ body {
   display: flex;
   justify-content: space-between;
   background: var(--theme-color-xx-light);
+  box-shadow: 0 1px 10px var(--theme-color-xxxx-dark);
 }
 .c-logo {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
+
+.c-logo__img{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
 .c-logo__text {
   font-weight: 700;
+  font-size: 1.25rem;
 }
 
 /* Nav */
 .c-nav {
-}
-.c-nav-list {
-  list-style: none;
-  flex-basis: calc(100% / 3);
-  display: flex;
-  justify-content: space-between;
+
 }
 
-.c-nav-list__item {
-  margin-left: 1rem;
-  cursor: pointer;
-}
-
-.c-nav-list__item:nth-child(1) {
-  margin-left: 0;
-}
-
-.c-nav-list__item--current {
-  color: var(--theme-color-xxxx-dark);
+.c-nav__label{
   font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.c-nav__select{
+  outline: none;
+  border: 1px solid var(--theme-color-xxxxx-dark);
+  border-radius: 10px;
+  background: var(--theme-color-xxxx-light);
+  padding: 0.25rem;
+  color: var(--theme-color-xxxxx-dark);
+}
+
+.c-nav__select:active, .c-nav__select:focus{
+  box-shadow: 0 0 0 3px var(--theme-color-xxxxx-dark);
 }
 
 /* Counter */

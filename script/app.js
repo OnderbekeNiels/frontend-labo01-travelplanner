@@ -9,7 +9,7 @@ const continents = {
   },
   endpoint = "https://restcountries.eu/rest/v2";
 
-let countryHolder;
+let countryHolder, filter;
 
 const renderCountries = (countries) =>{
     console.log({countries});
@@ -42,9 +42,19 @@ const getCountries = async (continent) => {
   renderCountries(data);
 };
 
+const listenToFilter = () =>{
+    filter.addEventListener('change', (e) =>{
+        getCountries(e.target.value);
+    })
+}
+ 
 const getDomElements = () => {
   countryHolder = document.querySelector(".js-countries");
-  getCountries(continents.europe);
+  filter = document.querySelector(".js-continent-select");
+  getCountries(filter.value);
+
+  listenToFilter();
+
 };
 
 document.addEventListener("DOMContentLoaded", () => {

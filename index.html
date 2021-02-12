@@ -1,17 +1,73 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country Planner</title>
 
-    <link rel="stylesheet" href="./style/reset.css">
-    <link rel="stylesheet" href="./style/screen.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- !preconnect zorgt dat hij zo snel mogelijk naar dit domein gaat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/screen.css" />
     <script defer src="./script/app.js"></script>
+    <script defer src="./script/api.js"></script>
+    <!-- !defer dat alles eerst geparsed wordt -->
 
-    <!-- To Do: add favicon -->
+    <link rel="icon" type="image/png" href="/images/earth.png" />
+  </head>
+  <body>
+    <main class="c-app">
+      <header class="c-header">
+        <a class="c-logo" href="#">
+          <img
+            class="c-logo__img"
+            src="./images/earth.png"
+            alt="Picture of our logo."
+          />
+          <h1 class="c-logo__text">Travel Planner</h1></a
+        >
+        <nav class="c-nav">
+          <label class="c-nav__label" for="continents"
+            >filter on continent:</label
+          >
+          <select
+            class="c-nav__select js-continent-select"
+            name="continents"
+            id="continents"
+          >
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+        </nav>
+        <div class="c-counter">
+          <span class="c-counter__current js-countries-visited">49</span>/250
+        </div>
+      </header>
 
-</head>
-<body>
-    <h1>Welcome to the country planner</h1>
-</body>
+      <article class="c-countries js-countries">
+        <section class="c-country">
+          <input
+            class="c-country__hidden-input o-hide-accessible"
+            type="checkbox"
+            name="country"
+            id="belgium"
+          />
+          <label class="c-country__label" for="belgium">
+            <div class="c-country__flag-holder"><img class="c-country__flag" src="https://restcountries.eu/data/bel.svg" alt="The flag of Belgium." /></div>
+            <div class="c-country__details">
+              <h2 class="c-country__name">Belgium</h2>
+              <span class="c-country__native-name">België</span>
+            </div>
+          </label>
+        </section>
+      </article>
+    </main>
+  </body>
 </html>

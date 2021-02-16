@@ -132,12 +132,15 @@ body {
 .c-countries {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  background: var(--theme-color-x-light);
   align-items: center;
   gap: 2rem;
   padding: 2rem;
   overflow-y: auto;
+  grid-template-rows: auto;
 }
 .c-country {
+  background-color: var(--theme-color-base);
 }
 
 .c-country__hidden-input {

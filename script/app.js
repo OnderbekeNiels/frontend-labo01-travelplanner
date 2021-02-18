@@ -35,8 +35,8 @@ const saveCountry = (alpha2code, add) => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(initialData));
     return;
   } else {
+    const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (add) {
-      const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
       if (storedData[selectedRegion]) {
         storedData[selectedRegion][alpha2code] = true; // key toevoegen aan bestaan object
       } else {
@@ -45,23 +45,31 @@ const saveCountry = (alpha2code, add) => {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(storedData));
     } else {
       //remove
-      // const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-      // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(storedData));
+      delete storedData[selectedRegion][alpha2code];
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(storedData));
     }
   }
-  //Todo: wat als er nog een ander land toegevoegd wordt binnen het zelfde continent?
-  //Todo: wat als we in een ander continent gaan selecteren
-  //Todo: wat als we een land weer deselecteren
-  // ! opslaan werkt nog niet goed
   // ! counter toevoegen.
-  // ! kleuren dynamish maken
+  updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
+};
+
+const updateCounter = (continents) => {
+  const counter = document.querySelector(".js-countries-visited");
+  let count = 0;
+  if (continents) {
+    for (const region in continents) {
+      console.log(region);
+      count += Object.keys(continents[region]).length;
+    }
+  }
+  counter.innerText = count;
 };
 
 const searchLocalStorageFor = (alpha2code) => {
   const localData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
   const selectedRegion = document.querySelector(".js-continent-select").value;
-  // if(!localData || !localData[selectedRegion]) return;
-  if (localData[selectedRegion]) {
+  if (!localData || !localData[selectedRegion]) return;
+  if (localData[selectedRegion][alpha2code]) {
     return "checked";
   } else {
     delete localData[selectedRegion][alpha2code];
@@ -80,7 +88,7 @@ const renderCountries = (countries) => {
             class="c-country__hidden-input o-hide-accessible js-country-input"
             type="checkbox"
             name="country"
-            "${searchLocalStorageFor(alpha2Code)}
+            ${searchLocalStorageFor(alpha2Code)}
             id="${alpha2Code}"
           />
           <label class="c-country__label" for="${alpha2Code}">
@@ -115,6 +123,7 @@ const getDomElements = () => {
   getCountries(filter.value);
 
   listenToFilter();
+  updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
 };
 
 document.addEventListener("DOMContentLoaded", () => {

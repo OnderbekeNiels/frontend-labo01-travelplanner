@@ -7,20 +7,88 @@ const continents = {
     europe: "Europe",
     oceania: "Oceania",
   },
-  endpoint = "https://restcountries.eu/rest/v2";
+  endpoint = "https://restcountries.eu/rest/v2",
+  LOCAL_STORAGE_KEY = "countries";
 
 let countryHolder, filter;
 
-const renderCountries = (countries) =>{
-    console.log({countries});
-    let countriesHTML = ``;
-    // !Object destructuring
-    for (const {name, alpha2Code, flag, nativeName} of countries) {
-        countriesHTML += `<section class="c-country">
+const listenToSavedCountries = () => {
+  const countries = document.querySelectorAll(".js-country-input");
+  for (const country of countries) {
+    country.addEventListener("change", function () {
+      saveCountry(this.id, this.checked);
+    });
+  }
+};
+
+const saveCountry = (alpha2code, add) => {
+  // ! Hier een key gebruiken maakt het dynamisch
+  const savedCountries = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const selectedRegion = document.querySelector(".js-continent-select").value;
+  //Eerste gebruik van de app
+  if (!savedCountries && add) {
+    const initialData = {
+      [selectedRegion]: {
+        [alpha2code]: true,
+      },
+    };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(initialData));
+    return;
+  } else {
+    const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (add) {
+      if (storedData[selectedRegion]) {
+        storedData[selectedRegion][alpha2code] = true; // key toevoegen aan bestaan object
+      } else {
+        storedData[selectedRegion] = { [alpha2code]: true }; // Nieuw object toekennen aan de nieuwe region
+      }
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(storedData));
+    } else {
+      //remove
+      delete storedData[selectedRegion][alpha2code];
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(storedData));
+    }
+  }
+  // ! counter toevoegen.
+  updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
+};
+
+const updateCounter = (continents) => {
+  const counter = document.querySelector(".js-countries-visited");
+  let count = 0;
+  if (continents) {
+    for (const region in continents) {
+      console.log(region);
+      count += Object.keys(continents[region]).length;
+    }
+  }
+  counter.innerText = count;
+};
+
+const searchLocalStorageFor = (alpha2code) => {
+  const localData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+  const selectedRegion = document.querySelector(".js-continent-select").value;
+  if (!localData || !localData[selectedRegion]) return;
+  if (localData[selectedRegion][alpha2code]) {
+    return "checked";
+  } else {
+    delete localData[selectedRegion][alpha2code];
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(localData));
+    return;
+  }
+};
+
+const renderCountries = (countries) => {
+  console.log({ countries });
+  let countriesHTML = ``;
+  // !Object destructuring
+  for (const { name, alpha2Code, flag, nativeName } of countries) {
+    countriesHTML += `<section class="c-country">
           <input
-            class="c-country__hidden-input o-hide-accessible"
+            class="c-country__hidden-input o-hide-accessible js-country-input"
             type="checkbox"
             name="country"
+            ${searchLocalStorageFor(alpha2Code)}
             id="${alpha2Code}"
           />
           <label class="c-country__label" for="${alpha2Code}">
@@ -31,8 +99,9 @@ const renderCountries = (countries) =>{
             </div>
           </label>
         </section>`;
-    }
-    countryHolder.innerHTML = countriesHTML;
+  }
+  countryHolder.innerHTML = countriesHTML;
+  listenToSavedCountries();
 };
 
 const getCountries = async (continent) => {
@@ -42,19 +111,19 @@ const getCountries = async (continent) => {
   renderCountries(data);
 };
 
-const listenToFilter = () =>{
-    filter.addEventListener('change', (e) =>{
-        getCountries(e.target.value);
-    })
-}
- 
+const listenToFilter = () => {
+  filter.addEventListener("change", (e) => {
+    getCountries(e.target.value);
+  });
+};
+
 const getDomElements = () => {
   countryHolder = document.querySelector(".js-countries");
   filter = document.querySelector(".js-continent-select");
   getCountries(filter.value);
 
   listenToFilter();
-
+  updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
 };
 
 document.addEventListener("DOMContentLoaded", () => {

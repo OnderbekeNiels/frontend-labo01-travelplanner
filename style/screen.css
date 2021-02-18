@@ -132,7 +132,9 @@ body {
 .c-countries {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  background: var(--theme-color-x-light);
+  /* Todo: Stop stretching */
+  /* grid-template-rows: repeat(auto); */
+  background: var(--theme-color-xxx-light);
   align-items: center;
   gap: 2rem;
   padding: 2rem;
@@ -140,7 +142,7 @@ body {
   grid-template-rows: auto;
 }
 .c-country {
-  background-color: var(--theme-color-base);
+  /* background-color: var(--theme-color-base); */
 }
 
 .c-country__hidden-input {

@@ -1,12 +1,22 @@
 let notificationHolder = null;
+const TIME_VISIBLE = 4000;
 
 const getDom = () => {
   notificationHolder = document.querySelector(".js-notifications");
 };
 
+const fadeOutNotification = (notificationElement) => {
+  const timerId = setTimeout(() => {
+    notificationElement.classList.add("u-fading-out");
+    notificationElement.addEventListener("transitionend", function () {
+      this.parentNode.removeChild(this);
+    });
+  }, TIME_VISIBLE);
+};
+
 const showNotification = (message, undoCallback) => {
   const notificationElement = document.createElement("div");
-  notificationElement.classList.add("c-notification");
+  notificationElement.classList.add("c-notification", "u-will-fade");
 
   const messageElement = document.createElement("p");
   messageElement.innerText = message;
@@ -36,6 +46,8 @@ const showNotification = (message, undoCallback) => {
   notificationElement.appendChild(messageElement);
   notificationElement.appendChild(buttonElement);
   notificationHolder.appendChild(notificationElement);
+
+  fadeOutNotification(notificationElement);
 };
 
 document.addEventListener("DOMContentLoaded", function () {

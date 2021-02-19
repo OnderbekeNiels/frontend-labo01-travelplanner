@@ -236,6 +236,7 @@ body {
 
 .c-notification__message {
   font-size: 1.1rem;
+  margin-right: 1rem;
 }
 .c-notification__button {
   --local-notification-button-size: 3rem;
@@ -259,4 +260,15 @@ body {
 .c-notification__icon {
   stroke: var(--theme-color-xxxxx-dark);
   stroke-width: 2px;
+}
+
+.u-will-fade{
+  opacity: 1;
+  will-change: opacity;
+
+  transition: opacity 300ms ease-in-out;
+}
+
+.u-fading-out{
+  opacity: 0;
 }

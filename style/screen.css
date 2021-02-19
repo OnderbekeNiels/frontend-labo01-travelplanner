@@ -17,19 +17,20 @@
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 
-  --theme-color-xxxxx-light: #f2ffff;
-  --theme-color-xxxx-light: #ebfaff;
-  --theme-color-xxx-light: #e3eeff;
-  --theme-color-xx-light: #c4c0ff;
-  --theme-color-x-light: #d0a1ff;
-  --theme-color-light: #f889ff;
-  --theme-color-base: #ff78cb;
-  --theme-color-dark: #ed49c8;
-  --theme-color-x-dark: #d732c4;
-  --theme-color-xx-dark: #be1db7;
-  --theme-color-xxx-dark: #9f0da3;
-  --theme-color-xxxx-dark: #770087;
-  --theme-color-xxxxx-dark: #480052;
+  --theme-color-hue: 945;
+  --theme-color-xxxxx-light: hsl(var(--theme-color-hue), 100%, 97.5%);
+  --theme-color-xxxx-light: hsl(var(--theme-color-hue), 100%, 96.1%);
+  --theme-color-xxx-light: hsl(var(--theme-color-hue), 100%, 94.5%);
+  --theme-color-xx-light: hsl(var(--theme-color-hue), 100%, 87.6%);
+  --theme-color-x-light: hsl(var(--theme-color-hue), 100%, 81.6%);
+  --theme-color-light: hsl(var(--theme-color-hue), 100%, 76.9%);
+  --theme-color-base: hsl(var(--theme-color-hue), 100%, 70%);
+  --theme-color-dark: hsl(var(--theme-color-hue), 100%, 60.8%);
+  --theme-color-x-dark: hsl(var(--theme-color-hue), 100%, 52%);
+  --theme-color-xx-dark: hsl(var(--theme-color-hue), 100%, 42.9%);
+  --theme-color-xxx-dark: hsl(var(--theme-color-hue), 100%, 34%);
+  --theme-color-xxxx-dark: hsl(var(--theme-color-hue), 100%, 26.5%);
+  --theme-color-xxxxx-dark: hsl(var(--theme-color-hue), 100%, 12.9%);
 }
 
 html {

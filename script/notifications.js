@@ -12,6 +12,11 @@ const fadeOutNotification = (notificationElement) => {
       this.parentNode.removeChild(this);
     });
   }, TIME_VISIBLE);
+
+  //   zeer rudimentaire oplossing om timer te anneluren bij mouseover
+  notificationElement.addEventListener("mouseover", function () {
+    clearTimeout(timerId);
+  });
 };
 
 const showNotification = (message, undoCallback) => {

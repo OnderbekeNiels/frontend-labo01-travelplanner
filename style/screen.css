@@ -269,6 +269,26 @@ body {
   transition: opacity 300ms ease-in-out;
 }
 
+.c-settings{
+  position: absolute;
+  bottom: 0.5rem;
+  padding: 1rem;
+}
+
+.c-settings__button{
+  all: unset;
+    width:2rem;
+  height: 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: var(--theme-color-base);
+  cursor: pointer;
+}
+
+.c-settings__icon{}
+
+
+
 .u-fading-out{
   opacity: 0;
 }

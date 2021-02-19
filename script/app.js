@@ -1,4 +1,9 @@
+// Todo: colorslider
+// Todo: idk anymore
+
 console.log("script loaded");
+
+
 
 const continents = {
     africa: "Africa",

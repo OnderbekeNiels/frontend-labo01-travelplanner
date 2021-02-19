@@ -216,15 +216,18 @@ body {
   padding-bottom: 2rem;
   max-width: 28rem;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 .c-notification {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   background: var(--theme-color-xxxxx-light);
   padding: 2rem;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
   border-radius: 0.25rem;
+  pointer-events: all;
 }
 
 .c-notification + .c-notification {

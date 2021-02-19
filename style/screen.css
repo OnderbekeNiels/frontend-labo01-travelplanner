@@ -17,20 +17,22 @@
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 
-  --theme-color-hue: 945;
+  --theme-color-hue: 227;
   --theme-color-xxxxx-light: hsl(var(--theme-color-hue), 100%, 97.5%);
   --theme-color-xxxx-light: hsl(var(--theme-color-hue), 100%, 96.1%);
   --theme-color-xxx-light: hsl(var(--theme-color-hue), 100%, 94.5%);
   --theme-color-xx-light: hsl(var(--theme-color-hue), 100%, 87.6%);
   --theme-color-x-light: hsl(var(--theme-color-hue), 100%, 81.6%);
   --theme-color-light: hsl(var(--theme-color-hue), 100%, 76.9%);
-  --theme-color-base: hsl(var(--theme-color-hue), 100%, 70%);
+  --theme-color-base: hsl(var(--theme-color-hue), 100%, 100%);
   --theme-color-dark: hsl(var(--theme-color-hue), 100%, 60.8%);
-  --theme-color-x-dark: hsl(var(--theme-color-hue), 100%, 52%);
-  --theme-color-xx-dark: hsl(var(--theme-color-hue), 100%, 42.9%);
-  --theme-color-xxx-dark: hsl(var(--theme-color-hue), 100%, 34%);
-  --theme-color-xxxx-dark: hsl(var(--theme-color-hue), 100%, 26.5%);
-  --theme-color-xxxxx-dark: hsl(var(--theme-color-hue), 100%, 12.9%);
+  --theme-color-x-dark: hsl(var(--theme-color-hue), 10%, 52%);
+  --theme-color-xx-dark: hsl(var(--theme-color-hue), 53%, 42.9%);
+  --theme-color-xxx-dark: hsl(var(--theme-color-hue), 65%, 34%);
+  --theme-color-xxxx-dark: hsl(var(--theme-color-hue), 70%, 26.5%);
+  --theme-color-xxxxx-dark: hsl(var(--theme-color-hue), 99%, 12.9%);
+
+  --global-border-bottom-size: 0.5rem;
 }
 
 html {
@@ -55,11 +57,10 @@ body {
 }
 
 .c-app {
-  --local-border-bottom-size: 0.5rem;
   display: grid;
   grid-template-rows: auto 1fr;
-  height: calc(100vh - var(--local-border-bottom-size));
-  border-bottom: var(--local-border-bottom-size) solid
+  height: calc(100vh - var(--global-border-bottom-size));
+  border-bottom: var(--global-border-bottom-size) solid
     var(--theme-color-xxxxx-dark);
 }
 
@@ -203,4 +204,56 @@ body {
 
 .c-loader__text {
   font-size: 3rem;
+}
+
+/* Notifications */
+
+.c-notifications {
+  position: absolute;
+  right: 1rem;
+  top: 3.875rem; /* header hoogte */
+  bottom: var(--global-border-bottom-size);
+  padding-bottom: 2rem;
+  max-width: 28rem;
+  overflow-y: auto;
+}
+
+.c-notification {
+  display: flex;
+  align-items: flex-start;
+  background: var(--theme-color-xxxxx-light);
+  padding: 2rem;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+}
+
+.c-notification + .c-notification {
+  margin-top: 2rem;
+}
+
+.c-notification__message {
+  font-size: 1.1rem;
+}
+.c-notification__button {
+  --local-notification-button-size: 3rem;
+  all: unset; /*Alle default styles verwijderen, pas op moet bovenaan*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+}
+
+.c-notification__button:hover {
+  background-color: var(--theme-color-xx-light);
+}
+
+.c-notification__icon {
+  stroke: var(--theme-color-xxxxx-dark);
+  stroke-width: 2px;
 }

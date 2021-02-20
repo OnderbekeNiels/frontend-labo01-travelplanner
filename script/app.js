@@ -12,11 +12,25 @@ const continents = {
 
 let countryHolder, filter;
 
+const showMessage = (countryElement, added) => {
+  console.log({ countryElement });
+  // ! we gaan hier relatief snel over omdat we final zullen werken met react
+  const curruntCountry = countryElement.parentNode.querySelector(
+    ".c-country__name"
+  ).innerText;
+  let message = added
+    ? `You have added ${curruntCountry} to the list of places you would like to visit.`
+    : `You are not long interested in this ${curruntCountry}.`;
+
+  showNotification(message, null);
+};
+
 const listenToSavedCountries = () => {
   const countries = document.querySelectorAll(".js-country-input");
   for (const country of countries) {
     country.addEventListener("change", function () {
       saveCountry(this.id, this.checked);
+      showMessage(this, this.checked);
     });
   }
 };
@@ -126,6 +140,26 @@ const getDomElements = () => {
   updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
 };
 
+const listenToClickSettings = () => {
+  let isOpen = false;
+  document
+    .querySelector(".js-settings-button")
+    .addEventListener("click", () => {
+      if (isOpen) {
+        document
+          .querySelector(".c-settings")
+          .classList.remove("c-settings--accessible");
+        isOpen = false;
+      } else {
+        document
+          .querySelector(".c-settings")
+          .classList.add("c-settings--accessible");
+        isOpen = true;
+      }
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   getDomElements();
+  listenToClickSettings();
 });

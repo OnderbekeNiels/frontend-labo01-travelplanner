@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/screen.css" />
     <script defer src="./script/app.js"></script>
+    <script defer src="./script/notifications.js"></script>
+    <script defer src="./script/color.js"></script>
     <script defer src="./script/api.js"></script>
     <!-- !defer dat alles eerst geparsed wordt -->
 
@@ -52,9 +54,37 @@
       </header>
 
       <article class="c-countries js-countries">
-        <div class="c-loader"><p class="c-loader__text">The app is loading...</p></div>
-          
+        <div class="c-loader">
+          <p class="c-loader__text">The app is loading...</p>
+        </div>
       </article>
     </main>
+    <div class="c-settings">
+      <button class="c-settings__button js-settings-button">
+        <svg
+          class="c-settings__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="arcs"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+          ></path>
+        </svg>
+      </button>
+      <div class="c-settings__body">
+        
+        <label class="c-settings__label" for="colorSlider">
+           Theme color
+        </label>
+        <input type="range" name="colorSlider" min="0" max="360" class="js-color-slider" />
+      </div>
+    </div>
+    <aside class="c-notifications js-notifications"></aside>
   </body>
 </html>

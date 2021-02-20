@@ -262,33 +262,44 @@ body {
   stroke-width: 2px;
 }
 
-.u-will-fade{
+.u-will-fade {
   opacity: 1;
   will-change: opacity;
 
   transition: opacity 300ms ease-in-out;
 }
 
-.c-settings{
+.c-settings {
   position: absolute;
-  bottom: 0.5rem;
-  padding: 1rem;
+  bottom: var(--global-border-bottom-size);
+  padding-left: 1rem;
 }
 
-.c-settings__button{
+.c-settings__button {
   all: unset;
-    width:2rem;
-  height: 2rem;
+  padding: 0.5rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  background: var(--theme-color-base);
+  color: white;
+  background-color: var(--theme-color-xxxxx-dark);
   cursor: pointer;
 }
 
-.c-settings__icon{}
+.c-settings__body {
+  background-color: var(--theme-color-xxxxx-dark);
+  border-top-right-radius: 1rem;
+  padding: 1rem;
+  color: white;
+}
 
+.c-settings__icon {
+  width: 2rem;
+}
 
+.c-settings__label{
+  margin-right: 0.5rem;
+}
 
-.u-fading-out{
+.u-fading-out {
   opacity: 0;
 }

@@ -3,8 +3,6 @@
 
 console.log("script loaded");
 
-
-
 const continents = {
     africa: "Africa",
     omerica: "America",

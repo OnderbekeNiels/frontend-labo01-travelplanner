@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./style/screen.css" />
     <script defer src="./script/app.js"></script>
     <script defer src="./script/notifications.js"></script>
+    <script defer src="./script/color.js"></script>
     <script defer src="./script/api.js"></script>
     <!-- !defer dat alles eerst geparsed wordt -->
 
@@ -58,7 +59,7 @@
         </div>
       </article>
     </main>
-    <!-- <div class="c-settings">
+    <div class="c-settings">
       <button class="c-settings__button">
         <svg
           class="c-settings__icon"
@@ -77,12 +78,13 @@
         </svg>
       </button>
       <div class="c-settings__body">
-        <label class="c-settings-label" for="">
+        
+        <label class="c-settings__label" for="colorSlider">
            Theme color
-          <input type="range" min="0" max="360" class="js-color-slider" />
         </label>
+        <input type="range" name="colorSlider" min="0" max="360" class="js-color-slider" />
       </div>
-    </div> -->
+    </div>
     <aside class="c-notifications js-notifications"></aside>
   </body>
 </html>

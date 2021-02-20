@@ -275,7 +275,7 @@ body {
   padding-left: 1rem;
   transform: translateY(56px);
   will-change: transform;
-  transition: transform 300ms ease-in-out;
+  transition: transform 500ms ease-in-out;
 }
 
 .c-settings--accessible {

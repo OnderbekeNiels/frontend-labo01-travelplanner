@@ -273,6 +273,13 @@ body {
   position: absolute;
   bottom: var(--global-border-bottom-size);
   padding-left: 1rem;
+  transform: translateY(56px);
+  will-change: transform;
+  transition: transform 300ms ease-in-out;
+}
+
+.c-settings--accessible {
+  transform: translateY(0px);
 }
 
 .c-settings__button {
@@ -296,7 +303,7 @@ body {
   width: 2rem;
 }
 
-.c-settings__label{
+.c-settings__label {
   margin-right: 0.5rem;
 }
 

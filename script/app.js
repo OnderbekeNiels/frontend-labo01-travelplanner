@@ -143,6 +143,24 @@ const getDomElements = () => {
   updateCounter(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
 };
 
+const listenToClickSettings = () =>{
+let isOpen = false;
+document.querySelector(".js-settings-button").addEventListener("click", () => {
+  if (isOpen) {
+    document
+      .querySelector(".c-settings")
+      .classList.remove("c-settings--accessible");
+    isOpen = false;
+  } else {
+    document
+      .querySelector(".c-settings")
+      .classList.add("c-settings--accessible");
+    isOpen = true;
+  }
+});
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   getDomElements();
+  listenToClickSettings();
 });
